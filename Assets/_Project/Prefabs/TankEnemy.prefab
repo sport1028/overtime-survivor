@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6925910396251501440}
   - component: {fileID: 6132253815400462648}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: TankEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.87265784, g: 0.9529412, b: 0.050980363, a: 1}
+  m_Color: {r: 0.47379702, g: 0.9529412, b: 0.050980363, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,9 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcb4b320298ec8409a43ba20d50e26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  moveSpeed: 2
-  damage: 1
-  maxHp: 3
+  moveSpeed: 1
+  damage: 2
+  maxHp: 10
   expGemPrefab: {fileID: 7516421579631447325, guid: 45dde45efeaf64c4ab5a2a8b3ef9578b, type: 3}
 --- !u!58 &6132253815400462648
 CircleCollider2D:

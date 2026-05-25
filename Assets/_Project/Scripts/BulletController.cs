@@ -27,8 +27,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            EnemyController enemy =
-                collision.GetComponent<EnemyController>();
+            EnemyController enemy = collision.GetComponent<EnemyController>();
 
             if (enemy != null)
             {

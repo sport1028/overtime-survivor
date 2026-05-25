@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI levelText;
+    public TextMeshProUGUI waveText;
 
     void Awake()
     {
@@ -25,5 +26,10 @@ public class UIManager : MonoBehaviour
             "LV " + level +
             "\nEXP " + currentExp +
             " / " + maxExp;
+    }
+
+    public void UpdateWave(int wave)
+    {
+        waveText.text = "WAVE " + wave;
     }
 }

@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject expGemPrefab;
     public float moveSpeed = 2f;
     public int damage = 1;
     public int maxHp = 3;
+    public int expReward = 1;
 
     private Transform player;
     private int currentHp;
@@ -60,13 +62,14 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
-        PlayerController player =
-            FindFirstObjectByType<PlayerController>();
+        GameObject gem = Instantiate(
+            expGemPrefab,
+            transform.position,
+            Quaternion.identity
+        );
 
-        if (player != null)
-        {
-            player.AddExp(1);
-        }
+        gem.GetComponent<ExpGem>()
+            .expAmount = expReward;
 
         Destroy(gameObject);
     }

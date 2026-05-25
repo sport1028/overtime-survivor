@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public int level = 1;
     public int currentExp = 0;
     public int maxExp = 5;
+    public int bulletDamage = 1;
+    public int shotCount = 1;
 
     private float attackTimer;
     private Rigidbody2D rb;
@@ -53,14 +55,34 @@ public class PlayerController : MonoBehaviour
             (nearestEnemy.transform.position - transform.position)
             .normalized;
 
-        GameObject bullet = Instantiate(
-            bulletPrefab,
-            transform.position,
-            Quaternion.identity
-        );
+        float angleStep = 15f;
 
-        bullet.GetComponent<BulletController>()
-            .Init(direction);
+        float startAngle =
+            -angleStep * (shotCount - 1) / 2f;
+
+        for (int i = 0; i < shotCount; i++)
+        {
+            float angle =
+                startAngle + (angleStep * i);
+
+            Vector2 shotDirection =
+                Quaternion.Euler(0, 0, angle)
+                * direction;
+
+            GameObject bullet = Instantiate(
+                bulletPrefab,
+                transform.position,
+                Quaternion.identity
+            );
+
+            BulletController bulletController =
+                bullet.GetComponent<BulletController>();
+
+            bulletController.damage = bulletDamage;
+
+            bulletController.Init(shotDirection);
+        }
+
     }
 
     EnemyController FindNearestEnemy()
@@ -146,5 +168,6 @@ public class PlayerController : MonoBehaviour
             currentExp,
             maxExp
         );
+        UpgradeManager.Instance.ShowLevelUp();
     }
 }
