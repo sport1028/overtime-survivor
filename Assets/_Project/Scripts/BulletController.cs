@@ -4,6 +4,7 @@ public class BulletController : MonoBehaviour
 {
     public float speed = 10f;
     public int damage = 1;
+    public int pierceCount = 0;
 
     private Vector2 direction;
 
@@ -34,7 +35,14 @@ public class BulletController : MonoBehaviour
                 enemy.TakeDamage(damage);
             }
 
-            Destroy(gameObject);
+            if (pierceCount > 0)
+            {
+                pierceCount--;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

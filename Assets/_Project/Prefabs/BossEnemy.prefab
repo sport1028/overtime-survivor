@@ -138,6 +138,7 @@ MonoBehaviour:
   damage: 5
   maxHp: 50
   expReward: 10
+  isBoss: 1
 --- !u!58 &6132253815400462648
 CircleCollider2D:
   m_ObjectHideFlags: 0

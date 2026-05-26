@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public int damage = 1;
     public int maxHp = 3;
     public int expReward = 1;
+    public bool isBoss = false;
 
     private Transform player;
     private int currentHp;
@@ -20,6 +21,11 @@ public class EnemyController : MonoBehaviour
         if (playerObject != null)
         {
             player = playerObject.transform;
+        }
+
+        if (isBoss)
+        {
+            UIManager.Instance.ShowBossHpBar(maxHp);
         }
     }
 
@@ -54,14 +60,25 @@ public class EnemyController : MonoBehaviour
     {
         currentHp -= damage;
 
+        if (isBoss)
+        {
+            UIManager.Instance.UpdateBossHp(currentHp);
+        }
+
         if (currentHp <= 0)
         {
             Die();
         }
+
     }
 
     void Die()
     {
+        if (isBoss)
+        {
+            UIManager.Instance.HideBossHpBar();
+        }
+
         GameObject gem = Instantiate(
             expGemPrefab,
             transform.position,

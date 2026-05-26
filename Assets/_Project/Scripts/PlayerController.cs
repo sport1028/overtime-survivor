@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public int maxExp = 5;
     public int bulletDamage = 1;
     public int shotCount = 1;
+    public int bulletPierce = 0;    // 총알 관통 가능 횟수
+    public float magnetRange = 3f;  // 자기장 범위
 
     private float attackTimer;
     private Rigidbody2D rb;
@@ -75,11 +77,9 @@ public class PlayerController : MonoBehaviour
                 Quaternion.identity
             );
 
-            BulletController bulletController =
-                bullet.GetComponent<BulletController>();
-
+            BulletController bulletController = bullet.GetComponent<BulletController>();
             bulletController.damage = bulletDamage;
-
+            bulletController.pierceCount = bulletPierce;
             bulletController.Init(shotDirection);
         }
 

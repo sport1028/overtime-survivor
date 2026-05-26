@@ -59,12 +59,25 @@ public class UpgradeManager : MonoBehaviour
 
     public void UpgradeMultiShot()
     {
-        player.shotCount += 2;
+        player.shotCount += 1;
 
         if (player.shotCount > 7)
         {
             player.shotCount = 7;
         }
+
+        CloseLevelUp();
+    }
+
+    public void UpgradePierce()
+    {
+        player.bulletPierce++;
+        CloseLevelUp();
+    }
+
+    public void UpgradeMagnet()
+    {
+        player.magnetRange += 1.5f;
 
         CloseLevelUp();
     }
