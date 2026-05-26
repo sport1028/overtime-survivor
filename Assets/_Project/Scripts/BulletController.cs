@@ -43,6 +43,10 @@ public class BulletController : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+            AudioManager.Instance.PlaySFX(
+                AudioManager.Instance.shootClip
+            );
         }
     }
 }

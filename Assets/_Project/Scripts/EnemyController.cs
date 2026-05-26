@@ -74,6 +74,10 @@ public class EnemyController : MonoBehaviour
             Die();
         }
 
+        AudioManager.Instance.PlaySFX(
+            AudioManager.Instance.hitClip
+        );
+
     }
 
     void Die()

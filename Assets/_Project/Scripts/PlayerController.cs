@@ -142,6 +142,9 @@ public class PlayerController : MonoBehaviour
         if (currentExp >= maxExp)
         {
             LevelUp();
+            AudioManager.Instance.PlaySFX(
+                AudioManager.Instance.levelUpClip
+            );
         }
 
         UIManager.Instance.UpdateLevel(

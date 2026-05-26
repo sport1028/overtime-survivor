@@ -121,5 +121,9 @@ public class EnemySpawner : MonoBehaviour
         );
 
         Debug.Log("BOSS SPAWN!");
+
+        AudioManager.Instance.PlaySFX(
+            AudioManager.Instance.bossClip
+        );
     }
 }
