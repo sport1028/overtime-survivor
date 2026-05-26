@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI waveText;
     public Slider bossHpBar;
+    public GameObject damageTextPrefab;
 
     void Awake()
     {
@@ -18,16 +19,12 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHp(int currentHp, int maxHp)
     {
-        hpText.text =
-            "HP : " + currentHp + " / " + maxHp;
+        hpText.text = "HP : " + currentHp + " / " + maxHp;
     }
 
     public void UpdateLevel( int level, int currentExp, int maxExp)
     {
-        levelText.text =
-            "LV " + level +
-            "\nEXP " + currentExp +
-            " / " + maxExp;
+        levelText.text = "LV " + level + "\nEXP " + currentExp + " / " + maxExp;
     }
 
     public void UpdateWave(int wave)
@@ -52,5 +49,25 @@ public class UIManager : MonoBehaviour
     public void HideBossHpBar()
     {
         bossHpBar.gameObject.SetActive(false);
+    }
+
+    public void ShowDamageText(Vector3 worldPosition, int damage)
+    {
+        GameObject textObject =
+            Instantiate(
+                damageTextPrefab,
+                GameObject.Find("Canvas").transform
+            );
+
+        DamageText damageText =
+            textObject.GetComponent<DamageText>();
+
+        if (damageText != null)
+        {
+            damageText.SetDamage(
+                damage,
+                worldPosition
+            );
+        }
     }
 }

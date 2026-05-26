@@ -133,10 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcb4b320298ec8409a43ba20d50e26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  expGemPrefab: {fileID: 7516421579631447325, guid: 45dde45efeaf64c4ab5a2a8b3ef9578b, type: 3}
   moveSpeed: 1
   damage: 2
   maxHp: 10
-  expGemPrefab: {fileID: 7516421579631447325, guid: 45dde45efeaf64c4ab5a2a8b3ef9578b, type: 3}
+  expReward: 1
+  isBoss: 0
 --- !u!58 &6132253815400462648
 CircleCollider2D:
   m_ObjectHideFlags: 0

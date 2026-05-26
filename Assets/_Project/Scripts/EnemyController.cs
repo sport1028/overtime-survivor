@@ -59,6 +59,10 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHp -= damage;
+        UIManager.Instance.ShowDamageText(
+            transform.position,
+            damage
+        );
 
         if (isBoss)
         {

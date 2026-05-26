@@ -799,6 +799,7 @@ MonoBehaviour:
   levelText: {fileID: 1756418962}
   waveText: {fileID: 1835393652}
   bossHpBar: {fileID: 1669595016}
+  damageTextPrefab: {fileID: 8819571754299113835, guid: 9d145a29d8518f34184e540125508e98, type: 3}
 --- !u!4 &582746227
 Transform:
   m_ObjectHideFlags: 0
